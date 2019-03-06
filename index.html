@@ -1,0 +1,153 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Star Wars Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <!--<script src="assets/javascript/game.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <h1>Star Wars RPG</h1>
+
+    <div class="relative" id="Qui-Gon-Jinn">
+        <img src="assets/images/qui-gon-jinn.jpg">
+        <p class="absolute-name">Qui Gon Jinn</p>
+        <p class="absolute-health" id="health-quigon"></p>
+    </div>
+
+    <div class="relative" id="Darth-Maul">
+        <img src="assets/images/Darth-maul.jpg">
+        <p class="absolute-name">Darth Maul</p>
+        <p class="absolute-health" id="health-maul"></p>
+    </div>
+
+    <div class="relative" id="Darth-Vader">
+        <img src="assets/images/darth-vader.jpg">
+        <p class="absolute-name">Darth Vader</p>
+        <p class="absolute-health" id="health-vader"></p>
+    </div>
+
+    <div class="relative" id="Yoda">
+        <img src="assets/images/yoda.jpg">
+        <p class="absolute-name">Yoda</p>
+        <p class="absolute-health" id="health-yoda"></p>
+    </div>
+
+    <h2>Your Character</h2>
+
+    <div id="character"></div>
+
+    <h2>Enemies Available to Attack</h2>
+    <div class="enemy-one"></div>
+    <div class="enemy-two "></div>
+    <div class="enemy-three "></div>
+
+    <h2>Fight Section</h2>
+    <button id="attack">Attack</button>
+
+    <h2>Defender</h2>
+    <div id="defender"></div>
+
+    <script>
+        var userPick; var enemyOne; var enemyTwo; var enemyThree; var enemies; 
+        var quiGon =  100;
+        var darthMaul = 120;
+        var darthVader = 150;
+        var yoda = 180;
+        var timesClick=0;
+        
+        var healthQui=$("#health-quigon");
+        //$(healthQui).html(quiGon);
+        $(healthQui).text(quiGon);
+
+        var healthMaul = $("#health-maul");
+        //$(healthMaul).html(darthMaul);
+        $(healthMaul).text(darthMaul);
+
+        var healthVader = $("#health-vader");
+        //$(healthMaul).html(darthMaul);
+        $(healthVader).text(darthVader);
+
+        var healthYoda = $("#health-yoda");
+        //$(healthMaul).html(darthMaul);
+        $(healthYoda).text(yoda);
+        
+       console.log("qui gon health start: " + quiGon);
+       console.log("yoda health start: " + yoda);
+       console.log("maul health start: " + darthMaul);
+       console.log("vader health start: " + darthVader);
+
+        var enemyUno = {
+            name: "Qui Gon Jinn",
+            value: 100
+        }
+
+        $("#Qui-Gon-Jinn").on("click", function () {
+            userPick = $("#Qui-Gon-Jinn");
+            enemyOne = $("#Yoda");
+            enemyTwo = $("#Darth-Vader");
+            enemyThree = $("#Darth-Maul");
+            
+
+            $("#character").html(userPick);
+            $(".enemy-one").html(enemyOne);
+            $(".enemy-two").html(enemyTwo);
+            $(".enemy-three").html(enemyThree);
+            enemyOne.attr("class", "enemies");
+            enemyTwo.attr("class", "enemies");
+            enemyThree.attr("class", "enemies");
+        
+            
+            $(enemyOne).on("click", function(){
+                $("#defender").html(enemyOne);
+                enemyOne.attr("id", "defender");
+
+                $("#attack").on("click", function(){
+                    timesClick++;
+                    console.log("times clicked: " + timesClick);
+
+                    quiGon -= 25;
+                    console.log(quiGon);
+
+                    yoda -= 8*timesClick;
+                    console.log(yoda)
+
+
+                });
+            });
+
+
+        });
+
+        //$("#Yoda").on("click", function () {
+        //  userPick = $("#Yoda");
+        //  $("#character").html(userPick);
+        //});
+
+       // $("#Darth-Vader").on("click", function () {
+       //     userPick = $("#Darth-Vader");
+        //    $("#character").html(userPick);
+       // });
+
+       // $("#Darth-Maul").on("click", function () {
+        //    userPick = $("#Darth-Maul");
+        //    $("#character").html(userPick);
+       // });
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

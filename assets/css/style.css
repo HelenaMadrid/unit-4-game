@@ -1,0 +1,70 @@
+body{
+    background-image: url("../images/star-wars-wallpaper.jpg");
+    background-color: black;
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+
+.relative{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    float: left;
+    border: 30px solid white;
+}
+
+.absolute-name{
+    position: absolute;
+    top: -23%;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+}
+
+.absolute-health{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    bottom: -23%;
+}
+h1{
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    margin: 10px;
+}
+h2{
+    color: white;
+    clear: left;
+    margin: 20px;
+}
+button{
+    margin: 20px;
+}
+.enemies-available{
+    display: block;
+}
+.enemies{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    float: left;
+    border: 30px solid red;
+}
+
+#defender{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    float: left;
+    border: 30px solid black;
+    color: white;
+    border
+}
+
