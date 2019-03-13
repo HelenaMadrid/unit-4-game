@@ -57,7 +57,7 @@ button{
     border: 30px solid red;
 }
 
-#defender{
+#defender-style{
     position: relative;
     width: 200px;
     height: 200px;
@@ -65,9 +65,12 @@ button{
     float: left;
     border: 30px solid black;
     color: white;
-    border
+
 }
  #enemyAttacked, #youAttacked, #win-loss{
      color: white;
      font-size: 20px;
  }
+#restart{
+    visibility: hidden;
+}

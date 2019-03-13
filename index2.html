@@ -54,19 +54,21 @@
     <button id="attack">Attack</button>
 
     <h2>Defender</h2>
-    <div id="defender"></div>
+    <div id="defender" id="defender-style"></div>
     <p id="youAttacked"></p>
     <p id="enemyAttacked"></p>
     <p id="win-loss"></P>
 
     <script>
-        var userPick; var enemyOne; var enemyTwo; var enemyThree; var enemies; 
+        var enemyOne; var enemyTwo; var enemyThree; var enemies; 
         var quiGon =  100;
         var darthMaul = 120;
         var darthVader = 150;
         var yoda = 180;
         var timesClick=0;
-
+        var trueFalse=true;
+        var trueFalse2=true;
+        var userPick=""; 
         var youAttacked = $("#youAttacked");
         var enemyAttacked = $("#enemyAttacked");
         var winLossMessage = $("#win-loss");
@@ -97,12 +99,27 @@
             value: 100
         }
 
-       // $("#Qui-Gon-Jinn").on("click", function () {
-        //    userPick = $("#Qui-Gon-Jinn");
-          //  enemyOne = $("#Yoda");
-          //  enemyTwo = $("#Darth-Vader");
-          //  enemyThree = $("#Darth-Maul");
+        $("#Qui-Gon-Jinn").on("click", function () {
+            if(userPick === ""){
+                userPick = $("#Qui-Gon-Jinn");
+                enemyOne = $("#Yoda");
+                enemyTwo = $("#Darth-Vader");
+                enemyThree = $("#Darth-Maul");
             
+                $("#character").html(userPick);
+                $(".enemy-one").html(enemyOne);
+                $(".enemy-two").html(enemyTwo);
+                $(".enemy-three").html(enemyThree);
+
+                enemyOne.attr("class", "enemies");
+                enemyTwo.attr("class", "enemies");
+                enemyThree.attr("class", "enemies");
+            }
+            $(enemyOne).on("click", function(){
+                $("#defender").html(enemyOne);
+                enemyOne.attr("id", "defender-style");
+            });
+        });
 
           //  $("#character").html(userPick);
           //  $(".enemy-one").html(enemyOne);
@@ -144,6 +161,7 @@
       //  });
 
         $("#Yoda").on("click", function () {
+            if(userPick === ""){
             userPick = $("#Yoda");
             enemyOne = $("#Qui-Gon-Jinn");
             enemyTwo = $("#Darth-Vader");
@@ -157,18 +175,18 @@
             enemyOne.attr("class", "enemies");
             enemyTwo.attr("class", "enemies");
             enemyThree.attr("class", "enemies");
-
+            }
             $(enemyOne).on("click", function(){
                 $("#defender").html(enemyOne);
-                enemyOne.attr("id", "defender");
+                enemyOne.attr("id", "defender-style");
 
                 $("#attack").on("click", function(){
+                    if(trueFalse === true){
                     timesClick++;
                     console.log("times clicked: " + timesClick);
 
                     yoda -= 5;
-                    console.log(yoda)
-
+                    console.log(yoda);
                     quiGon -= 8*timesClick;
                     console.log(quiGon);
 
@@ -187,12 +205,24 @@
                         youAttacked.text("");
                         enemyAttacked.text("");
                         winLossMessage.text("You have defeated Qui Gon Jinn, you can choose to fight another enemy.");
+                        trueFalse=false;
+                    }
+                    }
+                    else{
+                            winLossMessage.text("No enemy. Please pick one.");
+                            $(healthQui).text(quiGon);
+                            $(healthYoda).text(yoda);
+                            console.log("times clicked: " + timesClick);
+                            
+                        
+                    
+                            //repetir código para que ya no reste y solo aparezca mensaje de no hay contrincante o buscar/preguntar código o método que aborte
 
                         $(enemyTwo).on("click", function(){
                             console.log("esto no debería contar " + timesClick);
                             winLossMessage.text("");
                             $("#defender").html(enemyTwo);
-                            enemyTwo.attr("id", "defender");
+                            enemyTwo.attr("id", "defender-style");
 
                             $("#attack").on("click", function(){
                                 console.log("darth vader " + darthVader);
@@ -221,17 +251,16 @@
                                     enemyAttacked.text("");
                                     winLossMessage.text("You have defeated Darth Vader, you can choose to fight another enemy.");
                                 }
-
                             });
-
+                            });
+                        }
                         });
-                    }
+                    
 
 
                 });
             });
             
-        });
 
        // $("#Darth-Vader").on("click", function () {
        //     userPick = $("#Darth-Vader");
@@ -244,9 +273,35 @@
        // });
 
 
+        //función de fight en el que el click en botón sea función y que llame a los contrincantes, y guarde los times clicked y los regrese con return.s
+
+      //  $("#attack").on("click", function battle(userPick, defender, timesClick){
+        //    timesClick++;
+        //    console.log("times clicked: " + timesClick);
+       // });
 
 
+       $("#Darth-Vader").on("click", function () {
+            if(userPick === ""){
+                userPick = $("#Darth-Vader");
+                enemyOne = $("#Yoda");
+                enemyTwo = $("#Qui-Gon-Jinn");
+                enemyThree = $("#Darth-Maul");
+            
+                $("#character").html(userPick);
+                $(".enemy-one").html(enemyOne);
+                $(".enemy-two").html(enemyTwo);
+                $(".enemy-three").html(enemyThree);
 
+                enemyOne.attr("class", "enemies");
+                enemyTwo.attr("class", "enemies");
+                enemyThree.attr("class", "enemies");
+            }
+            $(enemyOne).on("click", function(){
+                $("#defender").html(enemyOne);
+                enemyOne.attr("id", "defender-style");
+            });
+        });
     </script>
 
 </body>
