@@ -44,6 +44,10 @@ h2{
 }
 button{
     margin: 20px;
+    font-size: 150%;
+    color: white;
+    background-color: red;
+    border-color: white;
 }
 .enemies-available{
     display: block;
@@ -73,4 +77,9 @@ button{
  }
 #restart{
     visibility: hidden;
+    font-size: 150%;
+    color: white;
+    background-color: darkblue;
+    border-color: white;
+    
 }

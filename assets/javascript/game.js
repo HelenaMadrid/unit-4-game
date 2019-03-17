@@ -43,17 +43,6 @@ console.log("yoda health start: " + yoda);
 console.log("maul health start: " + darthMaul);
 console.log("vader health start: " + darthVader);
 
-
-function chooseEnemyTwo() {
-    $(enemyTwo).on("click", function () {
-        console.log("esto no debería contar " + timesClick);
-        winLossMessage.text("");
-        $("#defender").html(enemyTwo);
-        enemyTwo.attr("id", "defender-style");
-        attackTwo();
-    });
-}
-
 function chooseCharacter(chosenId) {
     if (userPick === "") {
         userPick = $("#" + chosenId);
@@ -102,14 +91,15 @@ function chooseEnemy() {
         }
         enemiesLeft--;
         console.log("eneemies left "+ enemiesLeft);
+        winLossMessage.text("");
         
     });
 }
-
-
 function attack() {
     $("#attack").off("click");
     $("#attack").on("click", function () {
+        winLossMessage.text("");
+
         if (trueFalse === true) {
             timesClick++;
             console.log("times clicked: " + timesClick);
@@ -203,7 +193,7 @@ function attack() {
                 }
 
                 if (darthVader <= 0) {
-                    currentEnemy.hide();
+                    currentEnemy.remove();
                     currentEnemy = "";
                     youAttacked.text("");
                     enemyAttacked.text("");
@@ -235,7 +225,7 @@ function attack() {
                 }
 
                 if (darthMaul <= 0) {
-                    currentEnemy.hide();
+                    currentEnemy.remove();
                     currentEnemy = "";
                     youAttacked.text("");
                     enemyAttacked.text("");
@@ -249,33 +239,36 @@ function attack() {
         }
         else {
             if(enemiesLeft===0){
-                
+                winLossMessage.text("The game is over. Press the restart button.");
             }
+            else{
             winLossMessage.text("No enemy. Please pick one.");
             console.log("times clicked: " + timesClick);
+            }
         }
     });
 }
-
 function gameWon(){
     if(enemiesLeft===0){
         winLossMessage.html("<h2>Congratulations, you have won the game!</h2>");
-        $("#restart").attr({visibility : "visible"});
+        $("#restart").attr("style", "visibility: visible");
+        restart();
     }
     else{
         console.log("game not won yet! There are still "+ enemiesLeft  + " to battle!");
     }
 }
 
-
+function restart(){
+    $("#restart").off("click");
+    $("#restart").on("click", function(){
+        location.reload();
+    });
+}
 
 $(".character").on("click", function () {
     var selectedCharacter = $(this);
     chooseCharacter(selectedCharacter.attr("id"));
     chooseEnemy();
     attack();
-    //chooseEnemy();
-   // attack();
-    //gameWon();
-
 });
