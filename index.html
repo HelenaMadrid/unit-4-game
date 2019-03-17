@@ -16,6 +16,7 @@
 <body>
     <h1>Star Wars RPG</h1>
 
+    <div id="cero">
     <div class="relative character" id="Qui-Gon-Jinn">
         <img src="assets/images/qui-gon-jinn.jpg">
         <p class="absolute-name">Qui Gon Jinn</p>
@@ -39,25 +40,35 @@
         <p class="absolute-name">Yoda</p>
         <p class="absolute-health" id="health-yoda"></p>
     </div>
+    </div>
 
-    <h2>Your Character</h2>
-
+    <div id="one">
+    <h2>Character</h2>
     <div id="character"></div>
+    </div>
 
-    <h2>Enemies Available to Attack</h2>
+    <div id="three">
+    <h2>Fight Section</h2>
+    <button id="attack">Attack</button>
+    </div>
+
+    <div id="four">
+    <h2>Defender</h2>
+    <div id="defender"></div><br>
+    <p id="youAttacked"></p>
+    <p id="enemyAttacked"></p>
+    <p id="win-loss"></p>
+    <div id="iframe"></div>
+    <button id="restart">Restart</button>
+    </div>
+
+    <div id="two">
+    <h2 id="red">Enemies Available to Attack</h2>
     <div class="enemy-one"></div>
     <div class="enemy-two"></div>
     <div class="enemy-three"></div>
+    </div>
 
-    <h2>Fight Section</h2>
-    <button id="attack">Attack</button>
-
-    <h2>Defender</h2>
-    <div id="defender"></div>
-    <p id="youAttacked"></p>
-    <p id="enemyAttacked"></p>
-    <p id="win-loss"></P>
-    <button id="restart">Restart</button>
 
         <script src="assets/javascript/game.js"></script>
 </body>

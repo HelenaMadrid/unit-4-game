@@ -23,19 +23,15 @@ var enemyAttacked = $("#enemyAttacked");
 var winLossMessage = $("#win-loss");
 
 var healthQui = $("#health-quigon");
-//$(healthQui).html(quiGon);
 $(healthQui).text(valuesCharacters[1]);
 
 var healthMaul = $("#health-maul");
-//$(healthMaul).html(darthMaul);
 $(healthMaul).text(valuesCharacters[3]);
 
 var healthVader = $("#health-vader");
-//$(healthMaul).html(darthMaul);
 $(healthVader).text(valuesCharacters[2]);
 
 var healthYoda = $("#health-yoda");
-//$(healthMaul).html(darthMaul);
 $(healthYoda).text(valuesCharacters[0]);
 
 console.log("qui gon health start: " + quiGon);
@@ -238,7 +234,7 @@ function attack() {
         }
         else {
             if(enemiesLeft===0){
-                winLossMessage.text("The game is over. Press the restart button.");
+                winLossMessage.html("<h2>The game is over. Press the restart button.</h2>");
             }
             else{
             winLossMessage.text("No enemy. Please pick one.");
@@ -251,20 +247,19 @@ function gameWon(){
     if(enemiesLeft===0 && currentEnemy<=0){
         winLossMessage.html("<h2>Congratulations, you have won the game!</h2>");
         $("#restart").attr("style", "visibility: visible");
+        $("#iframe").html("<iframe width='560' height='315'  style='visibility:visible' src='https://www.youtube.com/embed/oQib7e5Sxmo' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>");
         restart();
     }
     else{
         console.log("game not won yet! There are still "+ enemiesLeft  + " to battle!");
     }
 }
-
 function restart(){
     $("#restart").off("click");
     $("#restart").on("click", function(){
         location.reload();
     });
 }
-
 $(".character").on("click", function () {
     var selectedCharacter = $(this);
     chooseCharacter(selectedCharacter.attr("id"));

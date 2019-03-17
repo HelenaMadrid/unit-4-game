@@ -11,7 +11,9 @@ img{
     position: relative;
     width: 200px;
     height: 200px;
-    margin: 20px;
+    margin: 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     float: left;
     border: 30px solid white;
 }
@@ -69,11 +71,15 @@ button{
     float: left;
     border: 30px solid black;
     color: white;
+    margin-left: 65px;
 
 }
  #enemyAttacked, #youAttacked, #win-loss{
      color: white;
      font-size: 20px;
+     text-align: center;
+     clear: both;
+     background-color: black;
  }
 #restart{
     visibility: hidden;
@@ -81,5 +87,161 @@ button{
     color: white;
     background-color: darkblue;
     border-color: white;
-    
+}
+
+#one{
+    display: block;
+    float: left;
+    clear: left;
+    width: 25%;
+    margin: 0 auto;
+    margin-left: 8%;
+    text-align: center;
+}
+
+#three{
+    float: left;
+    width: 25%;
+    margin: 0 auto;
+    margin-left: 5%;
+    text-align: center;
+}
+
+#four{
+    float: left;
+    width: 25%;
+    margin: 0 auto;
+    text-align: center;
+}
+#cero{
+    width: 100%;
+}
+
+/*Media queries*/
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+    .relative{
+        display: block;
+        margin: 0 auto;
+        margin-left: 5px;
+        width: 150px;
+        height: 150px;
+        border: 20px solid white;
+        margin-bottom: 10px;
+        
+    }
+    img{
+        width: 150px;
+        height: 150px;
+    }
+    .absolute-name, .absolute-health{
+        font-size: 15px;
+    }
+    #defender-style{
+        display: block;
+        margin: 0 auto;
+        margin-left: 5px;
+        width: 150px;
+        height: 150px;
+        border: 20px solid black;
+        margin-bottom: 10px;
+    }
+    .enemies{
+        display: block;
+        margin: 0 auto;
+        margin-left: 5px;
+        width: 150px;
+        height: 150px;
+        border: 20px solid red;
+        margin-bottom: 10px;
+    }
+   /* #red{
+        text-align: right;
+    }*/
+    #one{
+        display: block;
+        float: left;
+    }
+    #two{
+        display: block;
+        float: none;
+        width: 100%;
+    }
+    #three{
+        float: left;
+    }
+    #four{
+        float: right;
+        margin-right: 10%;
+    }
+    iframe{
+        width: 200px;
+        height: 113px;
+    }
+}
+@media screen and (max-width: 640px){
+    .relative{
+        display: block;
+        margin: 0 auto;
+        margin-left: 3px;
+        width: 150px;
+        height: 150px;
+        border: 20px solid white;
+        margin-bottom: 10px;
+        
+    }
+    img{
+        width: 150px;
+        height: 150px;
+    }
+    .absolute-name, .absolute-health{
+        font-size: 15px;
+    }
+    #defender-style{
+        display: block;
+        margin: 0 auto;
+        margin-left: 5px;
+        width: 150px;
+        height: 150px;
+        border: 20px solid black;
+        margin-bottom: 10px;
+    }
+    .enemies{
+        display: block;
+        margin: 0 auto;
+        margin-left: 2px;
+        width: 150px;
+        height: 150px;
+        border: 20px solid red;
+        margin-bottom: 10px;
+    }
+    #one{
+        display: block;
+        float: left;
+        width: 20%;
+    }
+    #two{
+        display: block;
+        float: none;
+        width: 100%;
+    }
+    #three{
+        float: left;
+        width: 30%;
+        
+    }
+    #four{
+        float: right;
+        margin-right: 10%;
+        width: 20%;
+    }
+    iframe{
+        width: 200px;
+        height: 113px;
+    }
 }
