@@ -89,9 +89,9 @@ function chooseEnemy() {
             currentEnemy.attr("id", "defender-style");
             trueFalse = true;
         }
-        enemiesLeft--;
         console.log("eneemies left "+ enemiesLeft);
         winLossMessage.text("");
+        enemiesLeft--;
         
     });
 }
@@ -234,7 +234,6 @@ function attack() {
                 }
 
             }
-
             gameWon();
         }
         else {
@@ -249,7 +248,7 @@ function attack() {
     });
 }
 function gameWon(){
-    if(enemiesLeft===0){
+    if(enemiesLeft===0 && currentEnemy<=0){
         winLossMessage.html("<h2>Congratulations, you have won the game!</h2>");
         $("#restart").attr("style", "visibility: visible");
         restart();
